@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {Adverts} from '../../../models/iadvert';
 import {IadvertService} from '../../services/iadvert.service';
 import {Subscription} from 'rxjs/Subscription';
+import {Login} from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -18,9 +19,11 @@ export class HomePage {
 
   advert: Adverts[];
   subscriptions: Subscription[] = [];
+  logPage: any;
 
 
   constructor(public navCtrl: NavController, private iadvertService: IadvertService) {
+    this.logPage = 'Login';
 
     this.subscriptions.push(this.iadvertService.getAll().subscribe(
       adverts => this.advert = adverts

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import {Register} from '../pages/register/register';
+
+
 
 @Injectable()
 export class IauthService {
@@ -8,7 +11,7 @@ export class IauthService {
   path = 'http://localhost:3000/api/users';
   TOKEN_KEY = 'token';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private register : Register) {
   }
 
   get token() {
@@ -33,6 +36,7 @@ export class IauthService {
   registerUser(registerData) {
     return this.http.post<any>(this.path + '/register', registerData).subscribe(res => {
       console.log(res);
+      this.register.registerSuccess(res);
       this.saveToken(res.token);
     });
   }
