@@ -7,9 +7,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-toolbar color="dark">
+<ion-toolbar color="dark" *ngIf="!iauthservice.isAuthenticated">
   <button ion-button [navPush]="logPage">Sign In</button>
 </ion-toolbar>
+
+<!--<ion-toolbar color="dark" *ngIf="iauthservice.isAuthenticated">-->
+  <!--<button ion-button (click)="iauthService.logout()">Logout</button>-->
+<!--</ion-toolbar>-->
 
 <ion-content padding>
   <ion-row>

@@ -4,6 +4,7 @@ import {Adverts} from '../../../models/iadvert';
 import {IadvertService} from '../../services/iadvert.service';
 import {Subscription} from 'rxjs/Subscription';
 import {Login} from '../login/login';
+import {IauthService} from '../../services/iauth.service';
 
 @Component({
   selector: 'page-home',
@@ -20,15 +21,22 @@ export class HomePage {
   advert: Adverts[];
   subscriptions: Subscription[] = [];
   logPage: any;
+  loggedIn: any;
 
 
-  constructor(public navCtrl: NavController, private iadvertService: IadvertService) {
+  constructor(public navCtrl: NavController,
+              private iadvertService: IadvertService,
+              private iauthservice: IauthService ) {
     this.logPage = 'Login';
 
     this.subscriptions.push(this.iadvertService.getAll().subscribe(
       adverts => this.advert = adverts
     ));
 
+
+    // if(this.iauthservice.isAuthenticated){
+    //   this.loggedIn = user.email
+    // }
   }
 
 }

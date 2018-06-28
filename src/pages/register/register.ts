@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { HomePage } from '../home/home';
+
 import {IauthService} from '../../services/iauth.service';
 
 /**
@@ -23,16 +24,6 @@ export class Register {
     username: ''
   };
 
-  registerData={
-    email: this.reg.email,
-    pwd: this.reg.pwd1,
-    username: this.reg.username
-  };
-
-  loginData={
-    email: this.reg.email,
-    pwd: this.reg.pwd1
-  };
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -55,23 +46,39 @@ export class Register {
 
   }
 
-  //Check password validity and then register
+  //Check password  and username.length validity then authenticate
   registerAccount(){
     if (this.reg.pwd1 != this.reg.pwd2){
       this.displayAlert('Password Problem!', 'The passwords doesn\'t match, please try again');
       this.reg.pwd1 = '';
       this.reg.pwd2 = '';
     }
+    else if(this.reg.username.length <= 4 ){
+      this.displayAlert('Username Problem!', 'The username has to be longer than 4 character');
+    }
     else{
-        this.iauthservice.registerUser(this.registerData);
+      console.log(this.registerData);
+      let registerData={
+        email: this.reg.email,
+        password: this.reg.pwd1,
+        username: this.reg.username
+      };
+      console.log(registerData);
+      this.iauthservice.registerUser(registerData);
+      this.registerSuccess(registerData)
       }
 
   }
 
-  //Data pass in the register service and alert the user of the registration success
+  //Data pass in the register service and alert the user of the registration success + redirect to the home page
   registerSuccess(result){
     this.displayAlert(result.email, 'Well done you have created an account for this email address');
-    this.iauthservice.logInUser(this.loginData);
+    let loginData={
+      email: this.reg.email,
+      password: this.reg.pwd1
+    };
+    console.log(loginData);
+    this.iauthservice.logInUser(loginData);
     this.navCtrl.push(HomePage)
   }
 }

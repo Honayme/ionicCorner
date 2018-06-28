@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>register</ion-title>
+    <ion-title>Register an Account</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,27 @@
 
 <ion-content padding>
 
+  <ion-item>
+    <ion-label color="danger">Email Address</ion-label>
+    <ion-input type="email" [(ngModel)]="reg.email" name="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="danger">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="reg.pwd1" name="pwd1"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="danger">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="reg.pwd2" name="pwd2"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="danger">Username</ion-label>
+    <ion-input type="text" [(ngModel)]="reg.username" name="username"></ion-input>
+  </ion-item>
+
+  <p>Register an account using a valid email address (no I'm kidding)</p>
+
+  <button ion-button full color="danger" (click)="registerAccount()">Register</button>
 </ion-content>
