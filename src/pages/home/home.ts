@@ -10,6 +10,12 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class HomePage {
 
+  menuData = [
+    {title: 'Our Adverts', pic:'assets/img/logo.png', pushPage: 'MenuPage'},
+    {title: 'My Adverts', pic:'assets/img/logo.png', pushPage: 'MenuPage'},
+    {title: 'Login', pic:'assets/img/logo.png', pushPage: 'MenuPage'},
+  ];
+
   advert: Adverts[];
   subscriptions: Subscription[] = [];
 
