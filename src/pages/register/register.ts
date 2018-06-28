@@ -63,7 +63,7 @@ export class Register {
         password: this.reg.pwd1,
         username: this.reg.username
       };
-      console.log(registerData);
+      // console.log(registerData);
       this.iauthservice.registerUser(registerData);
       this.registerSuccess(registerData)
       }

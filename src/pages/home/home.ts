@@ -33,10 +33,10 @@ export class HomePage {
       adverts => this.advert = adverts
     ));
 
+  }
 
-    // if(this.iauthservice.isAuthenticated){
-    //   this.loggedIn = user.email
-    // }
+  logOut(){
+    this.iauthservice.logout();
   }
 
 }

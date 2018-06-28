@@ -1,4 +1,6 @@
 page-home {
+  ion-header{
+  }
   ion-card{
     position: relative;
     text-align: center;
@@ -14,5 +16,8 @@ page-home {
   .ion-card-header{
     font-weight: normal;
     color: #FFF;
+  }
+  .btnbtn{
+    float: right;
   }
 }

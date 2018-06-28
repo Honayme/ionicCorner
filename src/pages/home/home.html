@@ -1,19 +1,21 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+<ion-header *ngIf="iauthservice.isAuthenticated">
+    <ion-toolbar color="dark" >
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+
+      <button ion-button (click)="logOut()" class="btnbtn">
+        Logout
+      </button>
+    </ion-toolbar>
 </ion-header>
 
-<ion-toolbar color="dark" *ngIf="!iauthservice.isAuthenticated">
-  <button ion-button [navPush]="logPage">Sign In</button>
-</ion-toolbar>
 
-<!--<ion-toolbar color="dark" *ngIf="iauthservice.isAuthenticated">-->
-  <!--<button ion-button (click)="iauthService.logout()">Logout</button>-->
-<!--</ion-toolbar>-->
+<ion-header *ngIf="!iauthservice.isAuthenticated">
+  <ion-toolbar color="dark">
+    <button ion-button [navPush]="logPage">Sign In</button>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding>
   <ion-row>
