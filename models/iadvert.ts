@@ -1,11 +1,11 @@
 export interface Adverts {
-  id: number;
-  userId: string;
+  id?: number;
+  userId?: string;
   title: string;
   picture: string;
   price: number;
   desc: string;
   zip: number;
-  createAt: Date;
-  updateAt: Date;
+  createAt?: Date;
+  updateAt?: Date;
 }

@@ -35,8 +35,8 @@ export class AdvertForm {
       this.advert = {
         title: '',
         desc: '',
-        price: '',
-        zip: '',
+        price: 0,
+        zip: 0,
         picture: '',
       };
 
@@ -59,13 +59,13 @@ export class AdvertForm {
           this.navCtrl.push(this.myAdvert);
 
           this.toastCtrl.create({
-            message : `La pizza ${advert.title} a été modifiée.`,
+            message : `L'annonce ${advert.title} a été modifiée.`,
             duration: 5000,
             position: 'top'
           }).present();
         },
         () => this.toastCtrl.create({
-          message : 'Une erreur s\'est produite lors de la modification de la pizza.',
+          message : 'Une erreur s\'est produite lors de la modification de l\'annonce.',
           duration: 5000,
           position: 'top'
         }).present());
@@ -74,7 +74,7 @@ export class AdvertForm {
       this.advertService.createAdvert(advert).subscribe(
         () => this.navCtrl.push(this.myAdvert),
         () => this.toastCtrl.create({
-          message : 'Une erreur s\'est produite lors de la création de la advert.',
+          message : 'Une erreur s\'est produite lors de la création de l\'annonce.',
           duration: 5000,
           position: 'top'
         }).present());
@@ -82,6 +82,19 @@ export class AdvertForm {
 
   }
 
+  remove(advert: Adverts): void {
+    this.advertService.deleteAdvert(this.advert.id).subscribe(
+      (advert) => this.toastCtrl.create({
+        message : `L'annonce a bien été supprimée.`,
+        duration: 5000,
+        position: 'top'
+      }).present(),
+      () => this.toastCtrl.create({
+        message : 'Une erreur s\'est produite lors de la modification de l\'annonce.',
+        duration: 5000,
+        position: 'top'
+      }).present());
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdvertForm');

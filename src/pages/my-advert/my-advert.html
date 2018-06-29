@@ -12,10 +12,10 @@
 
 <ion-content padding>
   <h1>
-    Ajouter une annonce
     <ion-icon name="add-circle"
               [navPush]="advertForm"
               small>
+      Ajouter
     </ion-icon>
   </h1>
 
@@ -24,6 +24,7 @@
     <ion-col col-lg-2 col-md-3 col-sm-6 *ngFor="let advert of adverts">
       <ion-card>
         <button ion-button [navPush]="advertForm" [navParams]="advert">Modifier</button>
+
         <ion-card-header [navPush]="advertDetail"
                          [navParams]="advert">
           {{advert.title}} - {{advert.price}} €

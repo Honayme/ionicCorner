@@ -50,5 +50,10 @@
     </ion-list>
 
     <button ion-button>{{ advert.id ? 'Modifier' : 'Ajouter' }}</button>
+
+    <button (click)="remove(advert)"
+            ion-button icon-left clear small float-right>
+      <ion-icon name="trash">Supprimer</ion-icon>
+    </button>
   </form>
 </ion-content>
