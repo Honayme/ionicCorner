@@ -57,13 +57,11 @@ export class Register {
       this.displayAlert('Username Problem!', 'The username has to be longer than 4 character');
     }
     else{
-      console.log(this.registerData);
       let registerData={
         email: this.reg.email,
         password: this.reg.pwd1,
         username: this.reg.username
       };
-      // console.log(registerData);
       this.iauthservice.registerUser(registerData);
       this.registerSuccess(registerData)
       }

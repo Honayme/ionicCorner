@@ -11,14 +11,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {IadvertService} from '../services/iadvert.service';
 import { IauthService} from '../services/iauth.service';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {IonicStorageModule} from '@ionic/storage';
+import {MyAdvert} from '../pages/my-advert/my-advert';
+import {AuthInterceptorService} from '../services/iauthInterceptor.service';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    MyAdvert
   ],
   imports: [
     BrowserModule,
@@ -30,14 +33,20 @@ import {IonicStorageModule} from '@ionic/storage';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    MyAdvert
   ],
   providers: [
     IadvertService,
     IauthService,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
   ]
 })
 export class AppModule {}

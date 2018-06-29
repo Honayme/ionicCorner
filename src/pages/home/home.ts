@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 import {Adverts} from '../../../models/iadvert';
 import {IadvertService} from '../../services/iadvert.service';
 import {Subscription} from 'rxjs/Subscription';
-import {Login} from '../login/login';
 import {IauthService} from '../../services/iauth.service';
 
 @Component({
