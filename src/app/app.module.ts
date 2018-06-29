@@ -16,6 +16,7 @@ import {IonicStorageModule} from '@ionic/storage';
 import {MyAdvert} from '../pages/my-advert/my-advert';
 import {AuthInterceptorService} from '../services/iauthInterceptor.service';
 import {AdvertDetail} from '../pages/advert-detail/advert-detail';
+import {AdvertForm} from '../pages/advert-form/advert-form';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {AdvertDetail} from '../pages/advert-detail/advert-detail';
     HomePage,
     ListPage,
     MyAdvert,
-    AdvertDetail
+    AdvertDetail,
+    AdvertForm
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import {AdvertDetail} from '../pages/advert-detail/advert-detail';
     HomePage,
     ListPage,
     MyAdvert,
-    AdvertDetail
+    AdvertDetail,
+    AdvertForm
   ],
   providers: [
     IadvertService,
