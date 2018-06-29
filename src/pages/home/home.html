@@ -21,7 +21,8 @@
   <ion-row>
     <ion-col col-lg-2 col-md-3 col-sm-6 *ngFor="let add of advert">
       <ion-card>
-        <ion-card-header [navPush]=""
+        <button ion-button [navPush]="advertDetail" [navParams]="add">Detail</button>
+        <ion-card-header [navPush]="advertDetail"
                          [navParams]="add">
           {{add.title}} - {{add.price}} €
         </ion-card-header>

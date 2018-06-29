@@ -15,13 +15,15 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {IonicStorageModule} from '@ionic/storage';
 import {MyAdvert} from '../pages/my-advert/my-advert';
 import {AuthInterceptorService} from '../services/iauthInterceptor.service';
+import {AdvertDetail} from '../pages/advert-detail/advert-detail';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    MyAdvert
+    MyAdvert,
+    AdvertDetail
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {AuthInterceptorService} from '../services/iauthInterceptor.service';
     MyApp,
     HomePage,
     ListPage,
-    MyAdvert
+    MyAdvert,
+    AdvertDetail
   ],
   providers: [
     IadvertService,

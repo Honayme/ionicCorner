@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mes annonces</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-lg-2 col-md-3 col-sm-6 *ngFor="let advert of adverts">
+      <ion-card>
+        <ion-card-header [navPush]=""
+                         [navParams]="advert">
+          {{advert.title}} - {{advert.price}} €
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

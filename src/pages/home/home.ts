@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import {Adverts} from '../../../models/iadvert';
 import {IadvertService} from '../../services/iadvert.service';
 import {Subscription} from 'rxjs/Subscription';
 import {IauthService} from '../../services/iauth.service';
+import {AdvertDetail} from '../advert-detail/advert-detail';
 
 @Component({
   selector: 'page-home',
@@ -11,21 +12,19 @@ import {IauthService} from '../../services/iauth.service';
 })
 export class HomePage {
 
-  menuData = [
-    {title: 'Our Adverts', pic:'assets/img/logo.png', pushPage: 'MenuPage'},
-    {title: 'My Adverts', pic:'assets/img/logo.png', pushPage: 'MenuPage'},
-    {title: 'Login', pic:'assets/img/logo.png', pushPage: 'MenuPage'},
-  ];
-
   advert: Adverts[];
+  advertDetail: any;
   subscriptions: Subscription[] = [];
   logPage: any;
   loggedIn: any;
 
 
   constructor(public navCtrl: NavController,
+              private navParams: NavParams,
               private iadvertService: IadvertService,
-              private iauthservice: IauthService ) {
+              private iauthservice: IauthService) {
+
+    this.advertDetail = AdvertDetail;
     this.logPage = 'Login';
 
     this.subscriptions.push(this.iadvertService.getAll().subscribe(
@@ -37,5 +36,6 @@ export class HomePage {
   logOut(){
     this.iauthservice.logout();
   }
+
 
 }

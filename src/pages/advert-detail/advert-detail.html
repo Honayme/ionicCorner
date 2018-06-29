@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{advert.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <h1>{{ advert.title }} - {{ advert.price }} €</h1>
+    <img [src]="advert.picture" alt="">
+    <p>{{ advert.desc }}</p>
+</ion-content>
